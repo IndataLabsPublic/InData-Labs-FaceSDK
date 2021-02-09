@@ -1,6 +1,6 @@
 # the default package dependencies
 
-torch
+torch>=1.4.0
 torchvision
 scikit-image
 faiss-cpu
