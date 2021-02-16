@@ -22,7 +22,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="face_recognition_sdk",
-    version="0.0.1",
+    version="0.0.2",
     author="InData Labs",
     author_email="info@indatalabs.com",
     description="A python package for face detection and recognition",
