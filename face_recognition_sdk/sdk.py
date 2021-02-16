@@ -6,7 +6,7 @@ from pathlib import Path
 
 from .modules.detection.retinaface import RetinaFace
 from .modules.recognition.insightface import InsightFaceEmbedder
-from .modules.face_attributes import AttributeClassifierV1
+from .modules.face_attributes import AttributeClassifier
 from .modules.alignment import align_and_crop_face
 from .modules.database import FaissFaceStorage
 from .utils.io_utils import read_yaml
@@ -25,7 +25,7 @@ class FaceRecognitionSDK:
         logger.info("Start SDK initialization.")
         self.detector = RetinaFace(config["detector"])
         self.embedder = InsightFaceEmbedder(config["embedder"])
-        self.attr_classifier = AttributeClassifierV1(config["attributes"])
+        self.attr_classifier = AttributeClassifier(config["attributes"])
         self.database = FaissFaceStorage(config["database"])
         logger.info("Finish SDK initialization")
 
@@ -240,7 +240,8 @@ class FaceRecognitionSDK:
 
     def get_face_attributes(self, face_image: np.ndarray) -> dict:
         """
-        Get attributes of face. Currently supported: "Wearing_Hat", "Mustache", "Eyeglasses", "Beard", "Mask"
+        Get attributes of face. Currently supported: "Wearing_Hat", "Mustache", "Eyeglasses", "Beard", "Mask",
+        "Gender", "Age", "Race".
 
         Args:
             face_image: numpy image (112,112,3) in RGB format.
