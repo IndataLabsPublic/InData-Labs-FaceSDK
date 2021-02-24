@@ -3,7 +3,7 @@
 Clone and install dependencies for development
 
 ```
-git clone git@gitlab.indatalabs.com:cv_rg/face-recognition-sdk.git
+git clone https://github.com/IndataLabsPublic/InData-Labs-FaceSDK.git
 cd face-recognition-sdk
 conda env create -f environment.yml
 conda activate face_sdk
