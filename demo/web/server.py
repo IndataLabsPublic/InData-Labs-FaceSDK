@@ -46,8 +46,8 @@ def image():
         height, width, _ = img.shape
 
         objects = [
-            {"name": name, "bbox": [float(x) for x in bbox[:4]], "score": float(bbox[-1])}
-            for name, bbox in zip(names, bboxes)
+            {"name": name, "bbox": [float(x) for x in bbox[:4]], "score": float(score)}
+            for name, bbox, score in zip(names, bboxes, similarities)
         ]
 
         return json.dumps(objects)
